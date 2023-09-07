@@ -1,0 +1,26 @@
+cabal-version:      3.0
+name:               kell
+version:            0.1.0.0
+-- synopsis:
+-- description:
+homepage:           github.com/anntnzrb/kell
+license:            GPL-3.0-or-later
+license-file:       LICENSE
+author:             anntnzrb
+maintainer:         anntnzrb@protonmail.com
+-- copyright:
+category:           Learning
+build-type:         Simple
+-- extra-source-files:
+
+common warnings
+    ghc-options: -Wall
+
+executable kell
+    import:           warnings
+    main-is:          Main.hs
+    -- other-modules:
+    -- other-extensions:
+    build-depends:    base ^>=4.17.2.0
+    hs-source-dirs:   app
+    default-language: Haskell2010
