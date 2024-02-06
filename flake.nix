@@ -47,12 +47,14 @@
 
         fourmolu.settings = {
           indentation = 2;
+          column-limit = 80;
+          function-arrows = "trailing";
           comma-style = "leading";
           record-brace-space = true;
           indent-wheres = true;
           import-export-style = "diff-friendly";
-          respectful = true;
-          haddock-style = "multi-line";
+          respectful = false;
+          haddock-style = "multi-line-compact";
           newlines-between-decls = 1;
           extensions = [ "ImportQualifiedPost" ];
         };
