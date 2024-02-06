@@ -1,11 +1,11 @@
 cabal-version:      2.4
-name:               hs
+name:               kell
 version:            0.1.0.0
 license:            GPL-3.0-or-later
 copyright:          2024 anntnzrb
 maintainer:         anntnzrb@proton.me
 author:             anntnzrb
-homepage:           https://github.com/anntnzrb/hs
+homepage:           https://github.com/anntnzrb/kell
 synopsis:           A template for Haskell projects using Nix
 extra-source-files:
   COPYING
@@ -38,8 +38,8 @@ library
   exposed-modules: Lib
   hs-source-dirs:  src
 
-executable hs
+executable kell
   import:         shared
   main-is:        Main.hs
   hs-source-dirs: app
-  build-depends:  hs
+  build-depends:  kell

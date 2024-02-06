@@ -16,4 +16,4 @@ fmt:
 
 # Run ghcid -- auto-recompile and run `main` function
 run:
-    ghcid -c "cabal repl exe:hs" --warnings -T :main
+    ghcid -c "cabal repl exe:kell" --warnings -T :main

@@ -59,8 +59,8 @@
           extensions = [ "ImportQualifiedPost" ];
         };
 
-        packages.default = self'.packages.hs;
-        apps.default = self'.apps.hs;
+        packages.default = self'.packages.kell;
+        apps.default = self'.apps.kell;
 
         # -- devshell
         devShells.default = pkgs.mkShell {

@@ -1,4 +1,4 @@
-# hs
+# kell
 
 Personal template for Haskell projects using Nix.
 Based off [haskell-template](https://github.com/srid/haskell-template).
