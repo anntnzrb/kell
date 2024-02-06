@@ -24,7 +24,7 @@
           autoWire = [ "packages" "apps" "checks" ];
 
           packages = {
-            # optparse-applicative = "0.18.1.0"
+            # optparse-applicative.source = "0.18.1.0" # hackage
           };
 
           devShell = {
