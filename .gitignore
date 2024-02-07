@@ -1,12 +1,33 @@
-# cabal
-dist
-dist-*
-cabal.project.local
-cabal.project.local~
-
 # nix
 result
 result-*
 
 # direnv
 .direnv
+
+# Haskell / cabal / stack
+dist
+dist-*
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+*.prof
+*.aux
+*.hp
+*.eventlog
+.virtualenv
+.hsenv
+.hpc
+.cabal-sandbox/
+cabal.sandbox.config
+cabal.config
+cabal.project.local
+.ghc.environment.*
+.HTF/
+.hie/
+.stack-work/
+stack.yaml.lock

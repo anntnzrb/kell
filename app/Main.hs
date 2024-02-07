@@ -1,7 +1,8 @@
-module Main where
+module Main (main) where
 
-import Lib qualified (someFunc)
+import Lib qualified (isPalindrome)
 
 main :: IO ()
 main = do
-  print $ viaNonEmpty head (Lib.someFunc :: [Int])
+  putText "Is 'racecar' a palindrome? -> "
+  print $ Lib.isPalindrome "racecar"

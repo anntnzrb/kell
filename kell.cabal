@@ -1,45 +1,64 @@
-cabal-version:      2.4
-name:               kell
-version:            0.1.0.0
-license:            GPL-3.0-or-later
-copyright:          2024 anntnzrb
-maintainer:         anntnzrb@proton.me
-author:             anntnzrb
-homepage:           https://github.com/anntnzrb/kell
-synopsis:           A template for Haskell projects using Nix
-extra-source-files:
-  COPYING
-  README.md
+cabal-version:   2.4
+name:            kell
+version:         0.1.0.0
+synopsis:        A template for Haskell projects using Nix
+copyright:       2024 anntnzrb
+maintainer:      anntnzrb@proton.me
+author:          anntnzrb
+license:         GPL-3.0-or-later
+license-file:    COPYING
+homepage:        https://github.com/anntnzrb/kell
+category:        Testing
+build-type:      Simple
+extra-doc-files: README.md
 
-common shared
+source-repository head
+  type:     git
+  location: https://github.com/anntnzrb/kell.git
+
+common common-options
   ghc-options:
-    -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns
-    -Wmissing-deriving-strategies -Wunused-foralls -Wunused-foralls
-    -fprint-explicit-foralls -fprint-explicit-kinds
+    -Wall -Wcompat -Widentities -Wincomplete-record-updates
+    -Wincomplete-uni-patterns -Wmissing-deriving-strategies
+    -Wnoncanonical-monad-instances -Wredundant-constraints
+    -Wunused-foralls -fprint-explicit-foralls -fprint-explicit-kinds
+    -threaded
 
-  mixins:
-    base hiding (Prelude),
-    relude (Relude as Prelude, Relude.Container.One),
-    relude
+  if impl(ghc >=8.2)
+    ghc-options: -fhide-source-paths
 
+  if impl(ghc >=8.4)
+    ghc-options: -Wmissing-export-lists -Wpartial-fields
+
+  if impl(ghc >=8.8)
+    ghc-options: -Wmissing-deriving-strategies -fwrite-ide-info -hiedir=.hie
+
+  if impl(ghc >=8.10)
+    ghc-options: -Wunused-packages
+
+  default-language:   Haskell2010
   default-extensions:
     ImportQualifiedPost
     LambdaCase
     OverloadedStrings
 
-  build-depends:
-    , base    >=4.13.0.0 && <4.18.0.0.0
-    , relude  >=1.0
+  mixins:
+    base hiding (Prelude),
+    relude (Relude as Prelude)
 
-  default-language:   Haskell2010
+  build-depends:
+    , base    >=4.13 && <4.18
+    , relude  >=1.1
 
 library
-  import:          shared
-  exposed-modules: Lib
+  import:          common-options
   hs-source-dirs:  src
+  exposed-modules: Lib
+  build-depends:   text
 
 executable kell
-  import:         shared
-  main-is:        Main.hs
+  import:         common-options
   hs-source-dirs: app
+  main-is:        Main.hs
+  ghc-options:    -rtsopts -with-rtsopts=-N
   build-depends:  kell
