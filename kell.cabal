@@ -2,12 +2,17 @@ cabal-version:   2.4
 name:            kell
 version:         0.1.0.0
 synopsis:        A template for Haskell projects using Nix
+description:
+  A template for Haskell projects using Nix.
+  Based off haskell-template from srid.
+
 copyright:       2024 anntnzrb
 maintainer:      anntnzrb@proton.me
 author:          anntnzrb
 license:         GPL-3.0-or-later
 license-file:    COPYING
 homepage:        https://github.com/anntnzrb/kell
+bug-reports:     https://github.com/anntnzrb/kell/issues
 category:        Testing
 build-type:      Simple
 extra-doc-files: README.md
